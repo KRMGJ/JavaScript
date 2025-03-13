@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXJS01</title>
+    <script src="exjs01.js"></script>
+</head>
+
+<body>
+    <script>
+        // alert("창을 띄워서 출력")
+        // document.write("HTML 문서 내용에 출력")
+        // document.body.innerHTML = "HTML 문서의 body 내용"
+
+        //  변수 선언
+        //  var 변수명 : 함수범위 변수 선언
+        //  let 변수명 : 블럭{}범위 변수 선언
+        //  const 변수명 : 블럭{}범위 상수 선언
+
+        {
+            var a = 1;
+            a = 2;
+            var a = 3; // 중복 선언 가능
+        }
+        console.log(a);
+
+        {
+            let b = 1;
+            b = 2;
+            // let b = 3; // 중복 선언 불가
+            console.log(b);
+        }
+
+        {
+            const c = 1;
+            // c = 2; // 상수는 최초 값 할당 이후 변경 불가
+            console.log(c);
+        }
+
+        // 자바스크립트의 기본형 : number, string, boolean, null, undefined, symbol, bigint
+        console.log(typeof 12345); // number
+        console.log(typeof "문자열", typeof '문자열'); // string
+        console.log(typeof true, typeof false); // boolean
+        console.log(typeof null); // object : 아무 값도 없다는 것을 명시적으로 표현 (자바스크립트 버그)
+        console.log(typeof undefined); // undefined
+        let d;
+        console.log(typeof d); // undefined : 값이 할당되지 않은 변수 또는 객체의 존재하지 않는 속성의 값
+        console.log(typeof Symbol()); // symbol : 고유하고 변하지 않는 값
+        console.log(typeof 12345n); // bigint : number 타입에 안정적으로 저장할 수 없는 큰 정수값
+        console.log(typeof BigInt(12345)); // bigint
+        console.log(typeof 123e306 * 123e306); // Infinity : 무한대
+        console.log(BigInt(123e306) * BigInt(123e306));
+
+        // 객체
+        let e = [1, 2, 3]; // 배열
+        let f = function (x, y) { return x + y; }; // 함수
+        let g = { x: 1, y: 2 }; // 객체
+        console.log(typeof e, typeof f, typeof g); // object function object
+
+        // 기본형들 간의 형변환
+        // 명시적인 형변환 : 타입 이름 함수를 사용하여 Number(), String(), Boolean() 변환 가능
+        console.log(typeof '123'); // string
+        console.log(typeof Number('123')); // number
+        console.log(typeof true); // boolean
+        console.log(typeof String(true)); // string
+        console.log(typeof Number(true)); // number : true -> 1, false -> 0
+
+        // 자동 형변환
+        console.log('값은 ' + 123); // string + number -> string
+        console.log(true + 123); // boolean + number -> number
+        // boolean으로의 반환을 제외하면, 자동형변환 사용은 자제
+
+        // 입력문
+        // let ok = confirm("정말로 할까요?"); // 인자로 전달한 문자열을 출력하고, true/false를 결과로 반환
+        // console.log(ok);
+        // let str = prompt("값을 입력하세요"); // 인자로 전달한 문자열을 출력하고, 입력한 문자열을 결과로 반환
+        // console.log(str);
+
+        // 2개의 숫자를 입력받고, 두 수를 더한 결과를 x + y =- z 형태로 출력
+        // let x = prompt("첫 번째 숫자를 입력하세요");
+        // let y = prompt("두 번째 숫자를 입력하세요");
+        // let z = Number(x) + Number(y);
+        // console.log(x + " + " + y + " = " + z);
+        // alert(x + " + " + y + " = " + z);
+        // alert(`${x} + ${y} = ${z}`); // 템플릿리터널 `문자열 내부에 ${변수}사용`
+
+        // number 타입 값들
+        console.log(123e1, 123e2, 123e-1);
+        console.log(10, 0b10, 0o10, 0x10); // 10진수, 2진수, 8진수, 16진수
+        console.log(Infinity, typeof Infinity); // number 타입에 저장 불가능한 매우 큰 수
+        console.log(NaN, typeof NaN); // Not a Number : 숫자가 아닌 값
+        console.log(Number("가나다")); // NaN
+    </script>
+</body>
+
+</html>

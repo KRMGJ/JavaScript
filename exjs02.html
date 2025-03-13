@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXJS02</title>
+</head>
+
+<body>
+    <script>
+        // 산술연산자 : +, -, *, /, %, ++, --
+        // 대입연산자 : =, +=, -=, *=, /=, %=
+        // 비교연산자 : ==, ===, !=, !==, >, <, >=, <=
+        // 논리연산자 : &&, ||, !
+        // 비트연산자 : &, |, ^, ~, <<, >>
+        // 기타연산자 : ?:, typeof, delete, instanceof, in, new, this, void, yield, delete, ?., ??, ...
+
+        // == : 비교하는 두 값의 타입을 동일한 타입으로 변환하여 비교
+        // === : 비교하는 두 값의 타입과 값이 모두 동일한 경우에만 비교
+        console.log(0 == false, 0 === false); // true false
+        console.log(0 == "", 0 === ""); // true false
+        console.log(123 == "123", 123 === "123"); // true false
+        console.log(null == undefined, null === undefined); // true false
+
+        // 비교연산 시 부정확한 숫자 저장 주의
+        let a = 0.1;
+        let b = 0.2;
+        let c = a + b;
+        console.log(c == 0.3, c); // false 0.30000000000000004
+        console.log((0.1 * 10 + 0.2 * 10) / 10); // 실수 연산을 정밀하게 하고 싶다면, 정수로 변환하여 연산 후 다시 실수로 변환
+
+        // NaN은 자신을 포함한 다른 어떤 값과도 다르다
+        console.log(NaN == NaN);
+        console.log(NaN > 0);
+        console.log(NaN < 0);
+        console.log(NaN != 0);
+        let n = Number("가나다");
+        if (n === NaN) console.log("n의 값은 NaN 1");
+        if (Number.isNaN(n)) console.log("n의 값은 NaN 2"); // isNaN(n)보다 권장
+        if (n != n) console.log("n의 값은 NaN 3");
+
+        // x && y : x가 true이면 y를 반환, 그렇지 않으면 x를 반환
+        // x || y : x가 true이면 x를 반환, 그렇지 않으면 y를 반환
+        // boolean 변환 시 false로 변환되는 값들 : "", 0, null, undefined, NaN
+        if ("") console.log("빈 문자열은 true");
+        if (" ") console.log("공백 문자열은 true");
+        if (0) console.log("숫자 0은 true");
+        if (1) console.log("숫자 1은 true");
+        if (-1) console.log("숫자 -1은 true");
+        if (NaN) console.log("NaN은 true");
+        if (null) console.log("null은 true");
+        if (undefined) console.log("undefined는 true");
+        console.log("abc" && "def");
+        console.log(0 && "def");
+        console.log("abc" || "def");
+        console.log(0 || "def");
+
+        // x ?? y : x가 null 또는 undefined이면 y를 반환, 그렇지 않으면 x를 반환
+        let x = null;
+        let y = 456;
+        let z1 = x || y; // let z1 = (Boolean(x) === false) ? y : x;
+        let z2 = x ?? y; // let z2 = (x === null || x === undefined) ? y : x;
+        console.log(z1, z2);
+    </script>
+</body>
+
+</html>
