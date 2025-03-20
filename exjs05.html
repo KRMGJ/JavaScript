@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXJS05</title>
+</head>
+
+<body>
+    <script>
+        // 객체 : 변수와 함수의 집합체
+        // 객체(인스턴스)를 생성하는 방법
+        let obj1 = {};
+        let obj2 = new Object();
+        let obj3 = Object.create(Object.prototype);
+
+        // 객체의 속성(변수, 함수)들 정의
+        // {속성명: 속성값, 속성명: 속성값, ...}
+        // 속성명은 문자열도 사용 가능능
+        let obj4 = { name: "너부리", "score": 30 };
+        console.log(obj4.name, obj4.score); // 객체.속성명
+        console.log(obj4["name"], obj4["score"]); // 객체["속성명"]
+    </script>
+</body>
+
+</html>

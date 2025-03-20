@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXJS04</title>
+</head>
+
+<body>
+    <script>
+        // 함수(function) : 특정한 동작을 수행하는 코드 묶음
+        // 함수를 정의하는 방법
+        // function 함수이름(매개변수1, 매개변수2, ...) { 함수 실행 시 실행 될 명령문들 }
+        // function add(x, y) {
+        //     let z = x + y;
+        //     return z;
+        // };
+        // console.log(add(3, 4))
+
+        // var 함수명 = function(매개변수1, 매개변수2, ...) { 함수 실행 시 실행 될 명령문들 }
+        // var addFunc = function (x, y) {
+        //     let z = x + y;
+        //     return z;
+        // };
+        // console.log(addFunc(3, 4))
+
+        // var 함수명 = new Function ( 매개변수1, 매개변수2, ..., 함수 실행 시 실행 될 명령문들 )
+        // var addFunc = new Function("x", "y", "let z = x + y; return z;");
+        // console.log(addFunc(3, 4));
+
+        // 화살표 함수 (람다식) : argument와 this를 바인딩하지 않음
+        // var 함수명 = (매개변수1, 매개변수2, ...) => { 함수 실행 시 실행 될 명령문들 }
+        // var arr = (x, y) => {
+        //     let z = x + y;
+        //     return z;
+        // };
+        // console.log(arr(3, 4));
+
+        // 매개변수가 1개면 () 생략 가능
+        // var af = x => {
+        //     return x * x;
+        // };
+        // console.log(af(3));
+
+        // 함수 실행문이 { return xxx; } 형태이면 {}와 return 생략 가능
+        // var ar = x => x * x;
+        // console.log(ar(3));
+
+        // 익명함수
+        // let a = (function (x, y) {
+        //     return x + y;
+        // })(3, 4);
+        // console.log(a);
+
+        // 값을 받아서 덧셈, 뺄셈, 곱셈, 나눗셈을 수행하는 함수를 작성하고, 결과를 출력
+        // function calc(x, op, y) {
+        //     let result;
+        //     switch (op) {
+        //         case "+":
+        //             result = x + y;
+        //             break;
+        //         case "-":
+        //             result = x - y;
+        //             break;
+        //         case "*":
+        //             result = x * y;
+        //             break;
+        //         case "/":
+        //             result = x / y;
+        //             break;
+        //         default:
+        //             return "잘못된 연산자";
+        //     }
+        //     return result
+        // }
+        // console.log(calc(6, "+", 2));
+        // console.log(calc(6, "-", 2));
+        // console.log(calc(6, "*", 2));
+        // console.log(calc(6, "/", 2));
+
+        // println() 함수를 만들어서 출력
+        // function println(x) {
+        //     document.body.innerHTML += x + "<br>";
+        // }
+        // println("abc");
+        // println("가나다");
+
+        // function logThree(a, b, c){
+        //     console.log(a, b, c);
+        // }
+        // logThree(1, 2, 3);
+        // logThree(1, 2); // 매개변수 수보다 적은 수의 인자를 전달하면서 실행 가능
+        // logThree(); // 인자를 받지 않은 매개변수의 값은 undefined
+        // logThree(1, 2, 3, 4); // 매개변수 수보다 많은 수의 인자를 전달하면서 실행 가능
+        // logThree(1, 2, 3, 4, 5, 6, 7, 8);
+
+        // 인자를 3개 받아서 합산한 결과를 반환하는 함수 addThree 정의
+        // 2개의 인자만 전달하면, 3번째 인자는 0으로 간주하여 합산한 결과를 반환
+        // 1개의 인자만 전달하면, 2, 3번째 인자는 0으로 간주하여 합산한 결과를 반환
+        // function addThree(a, b, c) {
+        //     if (a === undefined) a = 0;
+        //     if (b === undefined) b = 0;
+        //     if (c === undefined) c = 0;
+        //     return a + b + c;
+        // }
+        // console.log(addThree(1, 2, 3));
+        // console.log(addThree(1, 2));
+        // console.log(addThree(1));
+        // console.log(addThree());
+
+        // 가변인자 함수 : arguments : 함수를 호출할 때 전달된 모든 인자를 저장하는 객체
+        // function addAll(...args) { // 나머지 매개변수 : 선언된 매개변수로 받지 못한 인자들을 모두 저장하는 객체
+        //     let sum = 0;
+        // for (let i = 0; i < arguments.length; i++) {
+        //     sum += arguments[i];
+        // }
+        //     for (let i = 0; i < args.length; i++) {
+        //         sum += arguments[i];
+        //     }
+        //     return sum;
+        // }
+        // console.log(addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+
+        // function myFunc() {
+        //     var v1 = 10;
+        //     v4 = 40; // var 키워드를 생략하면 전역변수(전역객체의 속성)로 선언됨
+        //     if (true) {
+        //         var v2 = 20;
+        //         let v3 = 30;
+        //     }
+        // }
+        // myFunc();
+
+        // try 블럭 안에서 예외가 발생하면, 블럭 내의 나머지 명령문들은 실행하지 않고,
+        // 발생한 오류 정보를 담은 객체를 catch변수에 전달하면서 catch블럭의 명령문들을 실행
+        // try {
+        //     console.log(v1);
+        //     console.log(v2);
+        //     console.log(v3);
+        //     console.log("정상 실행")
+        // } catch (error) {
+        //     console.error(error);
+        // } finally {
+        //     console.log("무조건 실행");
+        // }
+        // console.log(v4);
+
+        // 내장함수
+        // eval("자바스크립트 명령문") // 문자열로 전달된 자바스크립트 명령문을 실행
+        // eval('alert("Hello")'); // 보안 문제로 사용을 권장하지 않음
+        // let cmd = prompt('계산식')
+        // let result = eval(cmd);
+        // console.log(result);
+
+        // console.log(Number('0b10'), Number('0o10'), Number('0x10'));
+        // console.log(parseInt('10', 2), parseInt('10', 8), parseInt('10', 16));
+        // console.log(parseFloat('0b10'), parseFloat('0o10'), parseFloat('0x10'));
+        // let s = '123.456';
+        // console.log(Number(s), parseInt(s), parseFloat(s));
+        // s = '123.456e3';
+        // console.log(Number(s), parseInt(s), parseFloat(s));
+        // s = '123xyz';
+        // console.log(Number(s), parseInt(s), parseFloat(s));
+        // s = 'xyz123';
+        // console.log(Number(s), parseInt(s), parseFloat(s));
+        // s = null;
+        // console.log(Number(s), parseInt(s), parseFloat(s));
+        // s = undefined;
+        // console.log(Number(s), parseInt(s), parseFloat(s));
+        // s = true;
+        // console.log(Number(s), parseInt(s), parseFloat(s));
+        // s = false;
+        // console.log(Number(s), parseInt(s), parseFloat(s));
+        // s = NaN;
+        // console.log(Number(s), parseInt(s), parseFloat(s));
+        // s = ""
+        // console.log(Number(s), parseInt(s), parseFloat(s));
+        // s = " ";
+        // console.log(Number(s), parseInt(s), parseFloat(s));
+
+        // console.log(isFinite(123456789));
+        // console.log(isFinite(Infinity));
+        // console.log(isFinite(Number.MAX_VALUE));
+        // console.log(isFinite(Number.MIN_VALUE));
+        // console.log(isFinite(Number.MAX_VALUE + 2));
+        // console.log(isFinite(Number.MAX_VALUE * 2));
+
+        console.log(isNaN(123456789), Number.isNaN(123456789));
+        console.log(isNaN(Infinity), Number.isNaN(Infinity));
+        console.log(isNaN(Number.MAX_VALUE), Number.isNaN(Number.MAX_VALUE));
+        console.log(isNaN(Number.MIN_VALUE), Number.isNaN(Number.MIN_VALUE));
+        console.log(isNaN(Number.MAX_VALUE + 2), Number.isNaN(Number.MAX_VALUE + 2));
+        console.log(isNaN(Number.MAX_VALUE * 2), Number.isNaN(Number.MAX_VALUE * 2));
+        console.log(isNaN(null), Number.isNaN(null));
+        console.log(isNaN(undefined), Number.isNaN(undefined));
+        console.log(isNaN(""), Number.isNaN(""));
+        console.log(isNaN(" "), Number.isNaN(" "));
+        console.log(isNaN("123"), Number.isNaN("123"));
+        console.log(isNaN("abc"), Number.isNaN("abc"));
+    </script>
+</body>
+
+</html>
